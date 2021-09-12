@@ -12,12 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/passport-local": "^1.0.34",
+    "@types/supertest": "^2.0.11",
     "knex": "^0.95.11",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-passport": "^4.1.4",
     "koa-router": "^10.1.1",
     "koa-session": "^6.2.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.7.1"
   },
   "devDependencies": {
