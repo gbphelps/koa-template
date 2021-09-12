@@ -5,7 +5,10 @@ const app = new Koa();
 const router = new Router();
 
 router.get('/', async (ctx) => {
-    ctx.body = 'Hello World!';
+    ctx.body = {
+        status: 'success',
+        message: 'hello, world!'
+    }
 });
 
 app.use(router.routes());
