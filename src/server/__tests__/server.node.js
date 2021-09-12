@@ -1,7 +1,9 @@
-import server from '..';
+import {app} from '..';
 import request from 'supertest';
 
 
-test('Hello world works', async () => {
-   
+test('/ returns json', async () => {
+   const res = await (request(app.callback()).get('/'));
+   expect(res.status).toBe(200);
+   expect(res.text).toEqual('Hello World!')
 })
