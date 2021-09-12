@@ -1,6 +1,8 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+const BASE_PATH = path.join(__dirname, 'src', 'server', 'db');
+
+export default {
   test: {
     client: 'pg',
     connection: {

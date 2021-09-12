@@ -14,7 +14,10 @@
   "dependencies": {
     "knex": "^0.95.11",
     "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-passport": "^4.1.4",
     "koa-router": "^10.1.1",
+    "koa-session": "^6.2.0",
     "pg": "^8.7.1"
   },
   "devDependencies": {
@@ -22,7 +25,10 @@
     "@babel/preset-typescript": "^7.15.0",
     "@types/jest": "^27.0.1",
     "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^4.3.3",
+    "@types/koa-passport": "^4.0.2",
     "@types/koa-router": "^7.4.4",
+    "@types/koa-session": "^5.10.4",
     "jest": "^27.1.1",
     "nodemon": "^2.0.12",
     "supertest": "^6.1.6",
