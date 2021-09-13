@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server/server.ts",
-    "start": "ts-node ./src/server/server.ts",
+    "watch-server": "nodemon --transpile-only --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server/server.ts",
+    "start": "ts-node --transpile-only ./src/server/server.ts",
     "test": "jest"
   },
   "keywords": [],
