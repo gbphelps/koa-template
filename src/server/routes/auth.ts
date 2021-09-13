@@ -1,9 +1,10 @@
-import Router from 'koa-router';
+import Router, {} from 'koa-router';
 import passport from 'koa-passport';
 import fs from 'fs';
 import * as queries from '../db/queries/users';
+import { DefaultState, Context } from 'koa';
 
-const router = new Router();
+const router = new Router<DefaultState, Context>();
 
 router.get('/auth/register', async (ctx) => {
    ctx.type = 'html';
