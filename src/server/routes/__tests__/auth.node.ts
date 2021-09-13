@@ -1,5 +1,5 @@
-import {app} from '../../server';
-import request, {SuperTest} from 'supertest';
+import {app} from '../../app';
+import request from 'supertest';
 import knex from '../../db/connection';
 
 

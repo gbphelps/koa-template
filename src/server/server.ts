@@ -1,31 +1,9 @@
-import Koa from 'koa';
-import Router from 'koa-router';
-import bodyParser from 'koa-bodyparser';
-import session from 'koa-session';
-import {configurePassport} from './auth';
-import passport from 'koa-passport';
-import authRoutes from './routes/auth';
+import {app} from './app'
 
-const app = new Koa();
-const router = new Router();
+const PORT = process.env.PORT || 3000;
 
-app.keys = ['placeholder-key'];
-app.use(session(app));
-app.use(bodyParser());
+const server = app.listen(PORT, () => {
+    console.log(`Server listening on port: ${PORT}`)
+})
 
-configurePassport();
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-router.get('/', async (ctx) => {
-    ctx.body = {
-        status: 'success',
-        message: 'hello, world!'
-    }
-});
-
-app.use(router.routes());
-app.use(authRoutes.routes());
-
-export {app}
+export {server}
