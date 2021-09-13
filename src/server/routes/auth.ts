@@ -10,9 +10,18 @@ router.get('/auth/register', async (ctx) => {
    ctx.body = fs.createReadStream('./src/server/views/register.html') 
 })
 
-router.post('/auth/register', async (ctx, next) => {
+router.post('/auth/register', async (ctx,next) => {
     await queries.addUser(ctx.request.body);
-    passport.authenticate('local')
+
+    return passport.authenticate('local',(_,user) => {
+        if (user) {
+            ctx.login(user);
+            ctx.redirect('/auth/status');
+        } else {
+            ctx.status = 400;
+            ctx.body = {status: 'error'}
+        }
+    })(ctx,next)
 })
 
 router.get('/auth/status', async (ctx) => {

@@ -1,8 +1,7 @@
 import passport from 'koa-passport';
 import {Strategy as LocalStrategy} from 'passport-local';
-
-const knex = require('./db/connection');
-
+import knex from './db/connection';
+ 
 const options = {};
 
 

@@ -4,7 +4,7 @@ import bodyParser from 'koa-bodyparser';
 import session from 'koa-session';
 import {configurePassport} from './auth';
 import passport from 'koa-passport';
-
+import authRoutes from './routes/auth';
 
 const app = new Koa();
 const router = new Router();
@@ -26,5 +26,6 @@ router.get('/', async (ctx) => {
 });
 
 app.use(router.routes());
+app.use(authRoutes.routes());
 
 export {app}
