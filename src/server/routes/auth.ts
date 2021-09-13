@@ -24,7 +24,7 @@ router.post('/auth/register', async (ctx,next) => {
     })(ctx,next)
 })
 
-router.get('/auth/status', async (ctx) => {
+router.get('/auth/status', (ctx) => {
     if (ctx.isAuthenticated()) {
         ctx.type = 'html';
         ctx.body = fs.createReadStream('./src/server/views/status.html');

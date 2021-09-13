@@ -16,10 +16,13 @@ describe('auth routes', () => {
         await knex.migrate.rollback();
     })
 
+    afterAll(() => {
+        knex.destroy();
+    })
+
     test('GET /auth/register', async () => {
         const res = await request(app.callback()).get('/auth/register');
         expect(res.status).toEqual(200);
-        return;
     })
 
     test('POST /auth/register', async () => {
@@ -31,6 +34,5 @@ describe('auth routes', () => {
         })
         
         expect(res.status).toEqual(302);
-        return;
     })
 })
