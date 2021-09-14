@@ -30,26 +30,32 @@ describe('auth routes', () => {
     })
 
     test('GET /auth/register', async () => {
-        const res = await request(app.callback()).get('/auth/register');
+        const res = await request
+            .agent(app.callback())
+            .get('/auth/register');
+
         expect(res.status).toEqual(200);
     })
 
     test('POST /auth/register', async () => {
-        const res = await request(app.callback())
-        .post('/auth/register')
-        .send({
-            username: 'grant',
-            password: 'phelps'
-        }).redirects(5);
+
+        const res = await request
+            .agent(app.callback())
+            .post('/auth/register')
+            .send({
+                username: 'grant',
+                password: 'phelps'
+            }).redirects(5);
         
         expect(res.status).toEqual(200);
-        expect(processRedirects(res.redirects)).toContain('auth/status')
+        expect(processRedirects(res.redirects)).toEqual(['auth/status'])
     })
 
     test('POST /auth/login bad credentials', async () => {
         await userQueries.addUser({username: 'gbp', password: '123'});
 
-        const res = await request(app.callback())
+        const res = await request
+            .agent(app.callback())
             .post('/auth/login')
             .send({
                 username: 'grant',
@@ -63,7 +69,8 @@ describe('auth routes', () => {
     test('POST /auth/login good credentials', async () => {
         await userQueries.addUser({username: 'gbp', password: '123'});
 
-        const res = await request(app.callback())
+        const res = await request
+            .agent(app.callback())
             .post('/auth/login')
             .send({
                 username: 'gbp',
